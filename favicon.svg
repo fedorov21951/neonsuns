@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Soft outer glow -->
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Gradient for the main arc -->
+    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="45%" stop-color="#ff00ff"/>
+      <stop offset="100%" stop-color="#ffaa00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Transparent / black background for favicon -->
+  <rect width="64" height="64" fill="#000000"/>
+
+  <!-- Rays -->
+  <g filter="url(#glow)" stroke-linecap="round">
+    <!-- Top yellow -->
+    <line x1="32" y1="8" x2="32" y2="16" stroke="#ffcc00" stroke-width="2.2"/>
+    <!-- Top-right yellow -->
+    <line x1="44" y1="12" x2="40" y2="18" stroke="#ffaa00" stroke-width="2"/>
+    <!-- Right yellow -->
+    <line x1="52" y1="24" x2="45" y2="27" stroke="#ff9900" stroke-width="2"/>
+    <!-- Bottom-right yellow -->
+    <line x1="48" y1="42" x2="42" y2="38" stroke="#ffaa00" stroke-width="2"/>
+    <!-- Bottom yellow -->
+    <line x1="32" y1="56" x2="32" y2="48" stroke="#ffcc00" stroke-width="2.2"/>
+    <!-- Bottom-left magenta -->
+    <line x1="16" y1="42" x2="22" y2="38" stroke="#ff00aa" stroke-width="2"/>
+    <!-- Left cyan -->
+    <line x1="12" y1="32" x2="19" y2="32" stroke="#00e5ff" stroke-width="2.2"/>
+    <!-- Top-left cyan -->
+    <line x1="16" y1="16" x2="22" y2="21" stroke="#00f0ff" stroke-width="2"/>
+    <!-- Extra cyan rays -->
+    <line x1="20" y1="10" x2="24" y2="16" stroke="#00ccff" stroke-width="1.8"/>
+    <line x1="10" y1="22" x2="17" y2="25" stroke="#00ddff" stroke-width="1.8"/>
+    <line x1="48" y1="16" x2="43" y2="21" stroke="#ff66cc" stroke-width="1.8"/>
+    <line x1="54" y1="32" x2="47" y2="32" stroke="#ff8800" stroke-width="1.8"/>
+  </g>
+
+  <!-- Main neon arc (open circle / crescent style) -->
+  <path 
+    d="M 22 20 
+       A 14 14 0 1 1 22 44" 
+    fill="none" 
+    stroke="url(#arcGrad)" 
+    stroke-width="3.5" 
+    stroke-linecap="round"
+    filter="url(#softGlow)"
+  />
+  
+  <!-- Inner brighter arc for extra neon intensity -->
+  <path 
+    d="M 23 21.5 
+       A 12.5 12.5 0 1 1 23 42.5" 
+    fill="none" 
+    stroke="#ffffff" 
+    stroke-width="1.2" 
+    stroke-linecap="round"
+    opacity="0.7"
+    filter="url(#glow)"
+  />
+</svg>
