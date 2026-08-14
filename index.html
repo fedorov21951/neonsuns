@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Автомобили с пробегом, консультации и помощь в покупке  -  NeonSuns</title>
+    <title>Лендинг · Оранжевый</title>
     <style>
-        /* ===== Reset & Base ===== */
+        /* ===== Сброс и база ===== */
         * {
             margin: 0;
             padding: 0;
@@ -15,15 +15,14 @@
         body {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             background: #fff5ed;
-            /* very light orange background */
-            color: #5a3e2b;
+            color: #4d3522;
             line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* ===== Container (max‑width 980px) ===== */
+        /* ===== Контейнер (max‑width 980px) ===== */
         .container {
             max-width: 980px;
             width: 100%;
@@ -31,96 +30,197 @@
             padding: 0 1.5rem;
         }
 
-        /* ===== Header ===== */
+        /* ===== Шапка ===== */
         .site-header {
             background: #fce3cd;
-            /* light orange */
-            padding: 2rem 0;
+            padding: 1.2rem 0;
             border-bottom: 3px solid #f7c9a8;
-            box-shadow: 0 2px 12px rgba(200, 120, 60, 0.08);
-            margin-bottom: 2rem;
         }
-        .site-header h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
             color: #b06d3a;
             letter-spacing: -0.02em;
         }
-        .site-header .subhead {
-            font-size: 1.1rem;
+        .logo span {
             color: #8c5a36;
-            opacity: 0.85;
-            margin-top: 0.2rem;
+            font-weight: 400;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            color: #7a5538;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #b06d3a;
         }
 
-        /* ===== Main content ===== */
-        .main-content {
-            flex: 1;
-            padding-bottom: 2rem;
+        /* ===== Герой ===== */
+        .hero {
+            padding: 3.5rem 0 3rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #b06d3a;
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            color: #6a4b2e;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: #e8b186;
+            color: #3d2b1c;
+            font-weight: 600;
+            padding: 0.9rem 2.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: background 0.25s, transform 0.15s;
+            box-shadow: 0 4px 12px rgba(200, 120, 60, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        .btn:hover {
+            background: #d99d70;
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e8b186;
+            color: #b06d3a;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: #fce3cd;
         }
 
-        .card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 2.5rem 2.2rem;
-            box-shadow: 0 8px 30px rgba(180, 100, 40, 0.06);
-            border: 1px solid #f7dac4;
-            margin-bottom: 2rem;
-            transition: box-shadow 0.2s ease;
+        /* ===== Секции ===== */
+        .section {
+            padding: 2.8rem 0;
+            border-bottom: 1px solid rgba(200, 150, 110, 0.2);
         }
-        .card:hover {
-            box-shadow: 0 12px 40px rgba(180, 100, 40, 0.10);
+        .section:last-of-type {
+            border-bottom: none;
         }
 
-        .card h2 {
-            font-size: 1.8rem;
+        .section-title {
+            font-size: 2rem;
             font-weight: 600;
             color: #b06d3a;
-            margin-bottom: 1rem;
-            border-left: 5px solid #f7c9a8;
-            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #f7c9a8;
+            margin: 0.5rem auto 0;
+            border-radius: 4px;
         }
 
-        .card h3 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #c47d47;
-            margin-top: 1.5rem;
+        /* ===== Преимущества (сетка) ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .feature-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(180, 100, 40, 0.06);
+            border: 1px solid #f7dac4;
+            transition: transform 0.2s;
+        }
+        .feature-item:hover {
+            transform: translateY(-4px);
+        }
+        .feature-icon {
+            font-size: 2.6rem;
+            margin-bottom: 0.8rem;
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            color: #b06d3a;
             margin-bottom: 0.5rem;
         }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #5f4530;
+        }
 
-        .card p {
+        /* ===== Блок «О нас» ===== */
+        .about-grid {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1 1 280px;
+        }
+        .about-text p {
             margin-bottom: 1rem;
-            color: #4f3a2a;
+        }
+        .about-image {
+            flex: 1 1 200px;
+            background: #fce3cd;
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 4rem;
+            border: 2px dashed #e8b186;
+            color: #b06d3a;
         }
 
-        .card ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1.2rem;
+        /* ===== CTA (призыв) ===== */
+        .cta-box {
+            background: #fce3cd;
+            border-radius: 30px;
+            padding: 2.8rem 2rem;
+            text-align: center;
+            border: 2px solid #f7c9a8;
         }
-        .card ul li {
-            margin-bottom: 0.3rem;
+        .cta-box h2 {
+            font-size: 2rem;
+            color: #b06d3a;
+            margin-bottom: 0.8rem;
         }
-
-        /* ===== Highlight / callout ===== */
-        .highlight-box {
-            background: #fae8d9;
-            border-radius: 14px;
-            padding: 1.5rem 2rem;
-            border-left: 6px solid #e8b186;
-            margin: 1.5rem 0;
-        }
-        .highlight-box p {
-            margin-bottom: 0;
+        .cta-box p {
+            font-size: 1.1rem;
             color: #6a4b2e;
-            font-weight: 450;
+            margin-bottom: 1.8rem;
         }
 
-        /* ===== Footer ===== */
+        /* ===== Футер ===== */
         .site-footer {
             background: #fce3cd;
             border-top: 2px solid #f7c9a8;
-            padding: 1.5rem 0;
+            padding: 1.8rem 0;
             text-align: center;
             color: #7a5a3c;
             font-size: 0.95rem;
@@ -135,33 +235,64 @@
             text-decoration: underline;
         }
 
-        /* ===== Responsive fine‑tuning ===== */
-        @media (max-width: 640px) {
-            .site-header h1 {
-                font-size: 1.7rem;
+        /* ===== Адаптив ===== */
+        @media (max-width: 800px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .card {
-                padding: 1.8rem 1.2rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
-            .card h2 {
-                font-size: 1.5rem;
-                padding-left: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
             }
-            .highlight-box {
-                padding: 1rem 1.2rem;
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .hero {
+                padding: 2rem 0;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .about-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta-box {
+                padding: 2rem 1.2rem;
+            }
+            .cta-box h2 {
+                font-size: 1.6rem;
+            }
+            .btn {
+                padding: 0.7rem 2rem;
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 400px) {
-            .site-header {
-                padding: 1.5rem 0;
+            .container {
+                padding: 0 1rem;
             }
-            .site-header h1 {
-                font-size: 1.4rem;
-            }
-            .card {
-                padding: 1.2rem 1rem;
-                border-radius: 16px;
+            .logo {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -169,87 +300,92 @@
 
 <body>
 
-    <!-- ===== HEADER ===== -->
+    <!-- ===== ШАПКА ===== -->
     <header class="site-header">
-        <div class="container">
-             <h1>Автомобили с пробегом, консультации и помощь в покупке  -  NeonSuns</h1>
-            <p class="subhead">One‑column · Light orange · Max width 980px</p>
+        <div class="container header-inner">
+            <div class="logo">Orange<span>Land</span></div>
+            <nav class="nav-links">
+                <a href="#">Главная</a>
+                <a href="#">Услуги</a>
+                <a href="#">О нас</a>
+                <a href="#">Контакты</a>
+            </nav>
         </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="main-content">
-        <div class="container">
+    <!-- ===== ГЕРОЙ ===== -->
+    <section class="hero container">
+        <h1>Создаём уют в&nbsp;цифровом мире</h1>
+        <p>
+            Простой и тёплый лендинг с оранжевым настроением.
+            Адаптируется под любой экран, чтобы ваш контент всегда выглядел идеально.
+        </p>
+        <a href="#" class="btn">Начать</a>
+        <a href="#" class="btn btn-outline" style="margin-left: 0.8rem;">Узнать больше</a>
+    </section>
 
-            <!-- Primary card -->
-            <article class="card">
-                <h2>Welcome</h2>
+    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <section class="section container">
+        <h2 class="section-title">Почему мы</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h3>Чёткий фокус</h3>
+                <p>Одна колонка — никаких лишних отвлечений, только важное.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Адаптивность</h3>
+                <p>Отлично смотрится на телефонах, планшетах и ноутбуках.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <h3>Тёплая палитра</h3>
+                <p>Мягкие оранжевые тона создают комфорт и доверие.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== О НАС ===== -->
+    <section class="section container">
+        <h2 class="section-title">О нас</h2>
+        <div class="about-grid">
+            <div class="about-text">
                 <p>
-                    This page uses a soft light orange palette to create a
-                    warm, inviting atmosphere. The layout is a single column
-                    that adapts gracefully to any screen size, with a maximum
-                    width of 980px for comfortable reading on larger displays.
+                    Мы создаём простые, но выразительные страницы, которые помогают
+                    бизнесу быть ближе к клиентам. Наша философия — минимализм
+                    без потери смысла.
                 </p>
-
-                <h3>Why one column?</h3>
                 <p>
-                    A single‑column layout focuses attention on your content
-                    without distractions. It works perfectly for blogs,
-                    portfolios, landing pages, or any site where readability
-                    and simplicity come first.
-                </p>
-
-                <div class="highlight-box">
-                    <p>
-                        <strong>✨ Adaptive &amp; responsive</strong> — The
-                        container adjusts to the viewport, and on very small
-                        screens, padding and font sizes scale down smoothly.
-                    </p>
-                </div>
-
-                <h3>Key features</h3>
-                <ul>
-                    <li>Max‑width 980px, centered on large screens</li>
-                    <li>Light orange color scheme (hex <code>#fce3cd</code> to <code>#fae8d9</code>)</li>
-                    <li>Clean card‑style content with subtle shadows</li>
-                    <li>Fully responsive with media queries</li>
-                    <li>No external dependencies – pure HTML &amp; CSS</li>
-                </ul>
-                <p style="margin-top: 0.5rem; color: #8c6a4a;">
-                    ⚡ Try resizing your browser window to see the adaptive
-                    behaviour in action.
-                </p>
-            </article>
-
-            <!-- Extra decorative card (optional) -->
-            <div class="card" style="background: #fffaf5; border-color: #f7dac4;">
-                <h2 style="border-left-color: #e8b186;">Get in touch</h2>
-                <p>
-                    Have a project or idea? Feel free to reach out. This
-                    column‑less layout makes it easy to read and respond.
-                </p>
-                <p style="margin-bottom: 0;">
-                    <span style="background: #fce3cd; padding: 0.3rem 1.2rem; border-radius: 30px; display: inline-block; font-weight: 500; color: #b06d3a;">
-                        hello@example.com
-                    </span>
+                    Этот лендинг — пример того, как можно совместить эстетику
+                    и функциональность, используя только HTML и CSS.
                 </p>
             </div>
-
+            <div class="about-image">
+                🧡
+                <div style="font-size: 1rem; color: #6a4b2e; margin-top: 0.5rem;">980px</div>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== ПРИЗЫВ К ДЕЙСТВИЮ ===== -->
+    <section class="section container">
+        <div class="cta-box">
+            <h2>Готовы начать?</h2>
+            <p>Присоединяйтесь к тем, кто уже выбрал тёплый и ясный подход.</p>
+            <a href="#" class="btn">Связаться</a>
+        </div>
+    </section>
+
+    <!-- ===== ФУТЕР ===== -->
     <footer class="site-footer">
         <div class="container">
             <p>
-                &copy; 2026 Your Name &middot; Built with
-                <a href="#" onclick="return false;">❤️ and orange</a>
+                &copy; 2026 OrangeLand · Сделано с
+                <a href="#" onclick="return false;">❤️ и апельсинами</a>
             </p>
         </div>
     </footer>
 
 </body>
 </html>
-
-
-
