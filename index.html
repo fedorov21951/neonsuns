@@ -2,98 +2,166 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Автомобили с пробегом, консультации и помощь в покупке  -  NeonSuns</title>
-    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap 5 CSS -->
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    />
-    <!-- Optional custom styles -->
+    <title>Автомобили с пробегом, консультации и помощь в покупке  -  NeonSuns</title>
     <style>
-        /* ===== General ===== */
+        /* ===== Reset & Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: #f8f9fa;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #fff5ed;
+            /* very light orange background */
+            color: #5a3e2b;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== Container (max‑width 980px) ===== */
+        .container {
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         /* ===== Header ===== */
         .site-header {
-            background: #0d6efd;
-            /* Bootstrap primary */
-            padding: 1.2rem 0;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            background: #fce3cd;
+            /* light orange */
+            padding: 2rem 0;
+            border-bottom: 3px solid #f7c9a8;
+            box-shadow: 0 2px 12px rgba(200, 120, 60, 0.08);
+            margin-bottom: 2rem;
         }
         .site-header h1 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            margin: 0;
-            color: #fff;
+            color: #b06d3a;
             letter-spacing: -0.02em;
         }
         .site-header .subhead {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
-            margin: 0;
+            font-size: 1.1rem;
+            color: #8c5a36;
+            opacity: 0.85;
+            margin-top: 0.2rem;
         }
 
-        /* ===== Cards / Columns ===== */
-        .col-card {
+        /* ===== Main content ===== */
+        .main-content {
+            flex: 1;
+            padding-bottom: 2rem;
+        }
+
+        .card {
             background: #ffffff;
-            border-radius: 16px;
-            padding: 2rem 1.8rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            height: 100%;
+            border-radius: 20px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 8px 30px rgba(180, 100, 40, 0.06);
+            border: 1px solid #f7dac4;
+            margin-bottom: 2rem;
             transition: box-shadow 0.2s ease;
-            border: 1px solid rgba(0, 0, 0, 0.03);
         }
-        .col-card:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+        .card:hover {
+            box-shadow: 0 12px 40px rgba(180, 100, 40, 0.10);
         }
-        .col-card h2 {
-            font-size: 1.5rem;
+
+        .card h2 {
+            font-size: 1.8rem;
             font-weight: 600;
+            color: #b06d3a;
             margin-bottom: 1rem;
-            color: #0d6efd;
+            border-left: 5px solid #f7c9a8;
+            padding-left: 1rem;
         }
-        .col-card p {
-            color: #2c3e50;
-            line-height: 1.7;
-        }
-        .col-card ul {
-            padding-left: 1.3rem;
-            color: #2c3e50;
-            line-height: 1.8;
-        }
-        .col-card .badge-icon {
-            display: inline-block;
-            background: #e9f0ff;
-            color: #0d6efd;
+
+        .card h3 {
+            font-size: 1.3rem;
             font-weight: 500;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.8rem;
-            border-radius: 30px;
-            margin-top: 0.5rem;
+            color: #c47d47;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #4f3a2a;
+        }
+
+        .card ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .card ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ===== Highlight / callout ===== */
+        .highlight-box {
+            background: #fae8d9;
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            border-left: 6px solid #e8b186;
+            margin: 1.5rem 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #6a4b2e;
+            font-weight: 450;
         }
 
         /* ===== Footer ===== */
         .site-footer {
-            background: #ffffff;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            background: #fce3cd;
+            border-top: 2px solid #f7c9a8;
             padding: 1.5rem 0;
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-top: 2.5rem;
+            text-align: center;
+            color: #7a5a3c;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+        .site-footer a {
+            color: #b06d3a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-footer a:hover {
+            text-decoration: underline;
         }
 
-        /* ===== Responsive tweaks ===== */
-        @media (max-width: 576px) {
+        /* ===== Responsive fine‑tuning ===== */
+        @media (max-width: 640px) {
+            .site-header h1 {
+                font-size: 1.7rem;
+            }
+            .card {
+                padding: 1.8rem 1.2rem;
+            }
+            .card h2 {
+                font-size: 1.5rem;
+                padding-left: 0.8rem;
+            }
+            .highlight-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .site-header {
+                padding: 1.5rem 0;
+            }
             .site-header h1 {
                 font-size: 1.4rem;
             }
-            .col-card {
-                padding: 1.5rem 1.2rem;
+            .card {
+                padding: 1.2rem 1rem;
+                border-radius: 16px;
             }
         }
     </style>
@@ -104,104 +172,81 @@
     <!-- ===== HEADER ===== -->
     <header class="site-header">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h1>Автомобили с пробегом, консультации и помощь в покупке  -  NeonSuns</h1>
-                    <p class="subhead">Simple · Clean · Adaptive</p>
-                </div>
-                <div class="col-md-4 text-md-end mt-2 mt-md-0">
-                    <span class="badge bg-light text-primary fs-6 px-3 py-2">
-                        Bootstrap 5
-                    </span>
-                </div>
-            </div>
+             <h1>Автомобили с пробегом, консультации и помощь в покупке  -  NeonSuns</h1>
+            <p class="subhead">One‑column · Light orange · Max width 980px</p>
         </div>
     </header>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <main class="container my-4 my-lg-5">
+    <main class="main-content">
+        <div class="container">
 
-        <!-- Two‑column row (adaptive) -->
-        <div class="row g-4">
+            <!-- Primary card -->
+            <article class="card">
+                <h2>Welcome</h2>
+                <p>
+                    This page uses a soft light orange palette to create a
+                    warm, inviting atmosphere. The layout is a single column
+                    that adapts gracefully to any screen size, with a maximum
+                    width of 980px for comfortable reading on larger displays.
+                </p>
 
-            <!-- LEFT COLUMN -->
-            <div class="col-12 col-md-6">
-                <div class="col-card">
-                    <h2>Left Column</h2>
+                <h3>Why one column?</h3>
+                <p>
+                    A single‑column layout focuses attention on your content
+                    without distractions. It works perfectly for blogs,
+                    portfolios, landing pages, or any site where readability
+                    and simplicity come first.
+                </p>
+
+                <div class="highlight-box">
                     <p>
-                        This is the primary column. It contains the main content
-                        of your page. On smaller screens, the columns stack
-                        vertically for a smooth mobile experience.
+                        <strong>✨ Adaptive &amp; responsive</strong> — The
+                        container adjusts to the viewport, and on very small
+                        screens, padding and font sizes scale down smoothly.
                     </p>
-                    <ul>
-                        <li>Fully responsive with Bootstrap grid</li>
-                        <li>Clean, modern card style</li>
-                        <li>Easy to customize</li>
-                    </ul>
-                    <span class="badge-icon">✨ Feature rich</span>
                 </div>
-            </div>
 
-            <!-- RIGHT COLUMN -->
-            <div class="col-12 col-md-6">
-                <div class="col-card">
-                      <p>
-      ТГ канал <a href='https://t.me/neonsuns'>NeonSuns</a>
-    </p>
-    <p>
-    <h2>Рекомендуемое оборудование для диагностики</h2>
-      <ol>
-  <li>Толщиномер rDevice серии RD-1000 </li>
-  <li>Фонарик</li>
-  <li>Сканер ThinkDiag, Ediag, Xdiag</li>
-</ol>      
-    </p>
-                    <h2>Right Column</h2>
-                    <p>
-                        The secondary column is perfect for side notes,
-                        additional info, or a call‑to‑action. It adapts
-                        seamlessly to any screen width.
-                    </p>
-                    <ul>
-                        <li>Sidebar-style content</li>
-                        <li>Supports text, lists, or media</li>
-                        <li>Built with Bootstrap 5</li>
-                    </ul>
-                    <span class="badge-icon">📱 Mobile first</span>
-                </div>
+                <h3>Key features</h3>
+                <ul>
+                    <li>Max‑width 980px, centered on large screens</li>
+                    <li>Light orange color scheme (hex <code>#fce3cd</code> to <code>#fae8d9</code>)</li>
+                    <li>Clean card‑style content with subtle shadows</li>
+                    <li>Fully responsive with media queries</li>
+                    <li>No external dependencies – pure HTML &amp; CSS</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #8c6a4a;">
+                    ⚡ Try resizing your browser window to see the adaptive
+                    behaviour in action.
+                </p>
+            </article>
+
+            <!-- Extra decorative card (optional) -->
+            <div class="card" style="background: #fffaf5; border-color: #f7dac4;">
+                <h2 style="border-left-color: #e8b186;">Get in touch</h2>
+                <p>
+                    Have a project or idea? Feel free to reach out. This
+                    column‑less layout makes it easy to read and respond.
+                </p>
+                <p style="margin-bottom: 0;">
+                    <span style="background: #fce3cd; padding: 0.3rem 1.2rem; border-radius: 30px; display: inline-block; font-weight: 500; color: #b06d3a;">
+                        hello@example.com
+                    </span>
+                </p>
             </div>
 
         </div>
-
-        <!-- Optional extra row (just for demo) -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="col-card" style="background: #f0f5ff; border-color: #d6e4ff;">
-                    <p class="mb-0 text-center text-secondary" style="font-size: 0.95rem;">
-                        ⚡ The two columns above automatically stack on mobile devices
-                        (width &lt; 768px) — try resizing your browser.
-                    </p>
-                </div>
-            </div>
-        </div>
-
     </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
-        <div class="container text-center">
-            <p class="mb-0">
+        <div class="container">
+            <p>
                 &copy; 2026 Your Name &middot; Built with
-                <a href="https://getbootstrap.com" target="_blank" class="text-decoration-none">
-                    Bootstrap 5
-                </a>
+                <a href="#" onclick="return false;">❤️ and orange</a>
             </p>
         </div>
     </footer>
-
-    <!-- Bootstrap JS (optional for some components, but not required for layout) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-    </script>
 
 </body>
 </html>
