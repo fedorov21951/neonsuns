@@ -1,1 +1,374 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оборудование для проверки автомобиля перед покупкой | NeonSuns</title>
+    <style>
+        /* ===== Сброс и база ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #fff5ed;
+            color: #4d3522;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== Контейнер (max‑width 980px) ===== */
+        .container {
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== Шапка ===== */
+        .site-header {
+            background: #fce3cd;
+            padding: 1.2rem 0;
+            border-bottom: 3px solid #f7c9a8;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #b06d3a;
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            color: #8c5a36;
+            font-weight: 400;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            color: #7a5538;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #b06d3a;
+        }
+
+        /* ===== Герой ===== */
+        .hero {
+            padding: 3.5rem 0 3rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #b06d3a;
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            color: #6a4b2e;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: #e8b186;
+            color: #3d2b1c;
+            font-weight: 600;
+            padding: 0.9rem 2.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: background 0.25s, transform 0.15s;
+            box-shadow: 0 4px 12px rgba(200, 120, 60, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        .btn:hover {
+            background: #d99d70;
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e8b186;
+            color: #b06d3a;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: #fce3cd;
+        }
+
+        /* ===== Секции ===== */
+        .section {
+            padding: 2.8rem 0;
+            border-bottom: 1px solid rgba(200, 150, 110, 0.2);
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #b06d3a;
+            margin-bottom: 1.8rem;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #f7c9a8;
+            margin: 0.5rem auto 0;
+            border-radius: 4px;
+        }
+
+        /* ===== Преимущества (сетка) ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .feature-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(180, 100, 40, 0.06);
+            border: 1px solid #f7dac4;
+            transition: transform 0.2s;
+        }
+        .feature-item:hover {
+            transform: translateY(-4px);
+        }
+        .feature-icon {
+            font-size: 2.6rem;
+            margin-bottom: 0.8rem;
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            color: #b06d3a;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #5f4530;
+        }
+
+        /* ===== Блок «О нас» ===== */
+        .about-grid {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1 1 280px;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        .about-image {
+            flex: 1 1 200px;
+            background: #fce3cd;
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 4rem;
+            border: 2px dashed #e8b186;
+            color: #b06d3a;
+        }
+
+        /* ===== CTA (призыв) ===== */
+        .cta-box {
+            background: #fce3cd;
+            border-radius: 30px;
+            padding: 2.8rem 2rem;
+            text-align: center;
+            border: 2px solid #f7c9a8;
+        }
+        .cta-box h2 {
+            font-size: 2rem;
+            color: #b06d3a;
+            margin-bottom: 0.8rem;
+        }
+        .cta-box p {
+            font-size: 1.1rem;
+            color: #6a4b2e;
+            margin-bottom: 1.8rem;
+        }
+
+        /* ===== Футер ===== */
+        .site-footer {
+            background: #fce3cd;
+            border-top: 2px solid #f7c9a8;
+            padding: 1.8rem 0;
+            text-align: center;
+            color: #7a5a3c;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+        .site-footer a {
+            color: #b06d3a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Адаптив ===== */
+        @media (max-width: 800px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .hero {
+                padding: 2rem 0;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .about-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta-box {
+                padding: 2rem 1.2rem;
+            }
+            .cta-box h2 {
+                font-size: 1.6rem;
+            }
+            .btn {
+                padding: 0.7rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== ШАПКА ===== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">**NeonSuns<span>***</span></div>
+            <nav class="nav-links">
+                <a href="#">Главная</a>
+                <a href="#uslugi">Услуги</a>
+                <a href="#about">О нас</a>
+                <!--<a href="#contatacts">Контакты</a>-->
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== ГЕРОЙ ===== -->
+    <section class="hero container">
+        <h1>Оборудование для проверки автомобиля перед покупкой</h1>
+        <p>
+           Выездная диагностика автомобиля перед покупкой, поиск подходящих объявлений, удаленные консультации
+        </p>
+        <a href="https://t.me/Pavel933" class="btn">Написать сообщение в ТГ</a>
+        <a href="https://t.me/neonsuns" class="btn btn-outline" style="margin-left: 0.8rem;">Канал в ТГ NeonSuns</a>
+        <a href="tel:+79236257602" class="btn btn-outline" style="margin-left: 0.8rem;">+7 923 625 7602</a>
+        
+    </section>
+
+   
+    <!-- ===== О НАС ===== -->
+    <section class="section container" id="about">
+        <h2 class="section-title">Какой оборудование купить?</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                   <ol>
+                     <li>Фонарик. Можно со светодиодом на гибком проводе, чтобы было проще залезть к скрытым полостям.</li>
+                     <li>Толщиномер. Лучше не экономить и купить толщиномер, который быстро дает показания. Например, rDevice 1000 PRO V2</li>
+                     <li>Сканер ODB2, можно thinkdiag2 или e</li> 
+                   </ol>
+                </p>
+                <p>
+                    Где отзывы о ваших услугах?
+                </p>
+                <p>
+                    Покупные отзывы, как у наших конкурентов, не заказывали и не показываем. Позвоните и убедитесь сами в качестве услуг.
+                </p>
+            </div>
+           <!-- <div class="about-image">
+                🧡
+                <div style="font-size: 1rem; color: #6a4b2e; margin-top: 0.5rem;">980px</div>
+            </div>-->
+        </div>
+    </section>
+
+
+
+    <!-- ===== ФУТЕР ===== -->
+    <footer class="site-footer">
+        <div class="container">
+               <p>
+
+            <a href='https://neonsuns.ru/peregon.html'>Перегон автомобиля в Томск из Владивостока</a>
+          </p>
+            <p>
+                &copy; 2026 NeonSuns · Консультации по выбору и покупке автомобиля с пробегом | Проверка в г. Томск
+                <br/> +7 923 625 7602
+               <!--  <a href="#" onclick="return false;">❤️ и апельсинами</a>-->
+            </p>
+        </div>
+    </footer>
+<!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111902357', 'ym');      ym(111902357, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/111902357" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+</body>
+</html>
